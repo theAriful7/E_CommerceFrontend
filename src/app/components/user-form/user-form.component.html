@@ -1,0 +1,60 @@
+<div class="form-container">
+  <h3>{{ isEdit ? 'Edit User' : 'Create User' }}</h3>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-row">
+      <label>Full Name</label>
+      <input formControlName="fullName" />
+      <small *ngIf="form.get('fullName')?.touched && form.get('fullName')?.invalid">Name required (min 3)</small>
+    </div>
+
+    <div class="form-row">
+      <label>Email</label>
+      <input formControlName="email" />
+      <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Valid email required</small>
+    </div>
+
+    <div class="form-row">
+      <label>Phone</label>
+      <input formControlName="phone" />
+    </div>
+
+    <div class="form-row" *ngIf="!isEdit">
+      <label>Password</label>
+      <input formControlName="password" type="password" />
+      <small>Set password when creating. Not required for edit.</small>
+    </div>
+
+    <div class="form-row">
+      <label>Role</label>
+      <select formControlName="role">
+        <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+      </select>
+    </div>
+
+    <div class="addresses-section">
+      <h4>Addresses</h4>
+      <div formArrayName="addresses">
+        <div *ngFor="let addr of addresses.controls; let i=index" [formGroupName]="i" class="address-card">
+          <div class="addr-row">
+            <input formControlName="street" placeholder="Street" />
+            <input formControlName="city" placeholder="City" />
+          </div>
+          <div class="addr-row">
+            <input formControlName="state" placeholder="State" />
+            <input formControlName="country" placeholder="Country" />
+            <input formControlName="postalCode" placeholder="Postal Code" />
+          </div>
+          <button type="button" class="btn danger" (click)="removeAddress(i)">Remove</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn" (click)="addAddress()">Add Address</button>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn primary" type="submit">{{ isEdit ? 'Update' : 'Create' }}</button>
+      <button class="btn" type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

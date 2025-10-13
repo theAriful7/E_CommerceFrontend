@@ -1,0 +1,45 @@
+<div class="user-list-container">
+  <div class="header">
+    <h2>Users</h2>
+    <button routerLink="/user-form" class="btn primary" (click)="addUser()">Add User</button>
+  </div>
+
+  <div *ngIf="loading" class="center">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="users.length" class="user-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Active</th>
+        <th>Addresses</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{u.id}}</td>
+        <td>{{u.fullName}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.phone}}</td>
+        <td>{{u.role}}</td>
+        <td>{{u.isActive ? 'Yes' : 'No'}}</td>
+        <td>
+          <span *ngIf="u.addresses?.length; else noAddr">{{ u.addresses.length }} addr</span>
+          <ng-template #noAddr>—</ng-template>
+        </td>
+        <td class="actions">
+          <button class="btn" (click)="viewUser(u.id)">View</button>
+          <button class="btn" (click)="editUser(u.id)">Edit</button>
+          <button class="btn danger" (click)="deleteUser(u.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && !users.length" class="center">No users found.</div>
+</div>

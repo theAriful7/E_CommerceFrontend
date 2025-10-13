@@ -1,0 +1,37 @@
+.details-container {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.card {
+    border: 1px solid #e5e5e5;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-body p {
+    margin: 6px 0;
+}
+
+.addresses ul {
+    padding-left: 16px;
+    margin: 8px 0;
+}
+
+.actions .btn {
+    margin-left: 8px;
+}
+
+.center {
+    text-align: center;
+    padding: 12px;
+    color: #666;
+}
