@@ -1,0 +1,23 @@
+<div class="product-container">
+  <h2>All Products</h2>
+  <button routerLink="/product/form" class="btn primary">➕ Add New Product</button>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let p of products">
+      <img [src]="p.imageUrl" alt="{{ p.name }}" class="product-img">
+      <div class="product-info">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.description }}</p>
+        <p><strong>Price:</strong> {{ p.price | currency:'BDT' }}</p>
+        <p><strong>Stock:</strong> {{ p.stock }}</p>
+        <p><strong>Category:</strong> {{ p.category.name }}</p>
+      </div>
+
+      <div class="product-actions">
+        <button [routerLink]="['/product/details', p.id]" class="btn info">Details</button>
+        <button [routerLink]="['/product/form', p.id]" class="btn warn">Edit</button>
+        <button (click)="deleteProduct(p.id!)" class="btn danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

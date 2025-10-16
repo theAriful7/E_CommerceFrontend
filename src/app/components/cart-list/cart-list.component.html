@@ -1,0 +1,25 @@
+<div class="cart-list-container">
+  <h2>All Carts</h2>
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Total Items</th>
+        <th>Total Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart of carts">
+        <td>{{ cart.id }}</td>
+        <td>{{ cart.userName }}</td>
+        <td>{{ cart.totalItems }}</td>
+        <td>{{ cart.totalPrice | currency }}</td>
+        <td>
+          <button class="delete-btn" (click)="deleteCart(cart.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

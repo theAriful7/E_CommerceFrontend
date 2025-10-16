@@ -25,7 +25,7 @@ export class UserDetailsComponent implements OnInit{
 
   fetch(id: number) {
     this.loading = true;
-    this.userService.getById(id).subscribe({
+    this.userService.getUserById(id).subscribe({
       next: (u) => { this.user = u; this.loading = false; },
       error: (err) => { console.error(err); this.loading = false; }
     });

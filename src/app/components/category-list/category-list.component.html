@@ -1,0 +1,27 @@
+<div class="category-container">
+  <h2>Category List</h2>
+  <button routerLink="/category/form" class="btn primary">➕ Add Category</button>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of categories">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.description }}</td>
+        <td>
+          <button [routerLink]="['/category/details', c.id]" class="btn info">Details</button>
+          <button [routerLink]="['/category/form', c.id]" class="btn warn">Edit</button>
+          <button (click)="deleteCategory(c.id!)" class="btn danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

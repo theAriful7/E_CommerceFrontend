@@ -1,0 +1,62 @@
+<div class="add-product-container">
+  <h2>Add New Product</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Enter product name">
+      <small *ngIf="f['name'].touched && f['name'].invalid" class="error">
+        Product name is required
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" rows="3" formControlName="description" placeholder="Enter description"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="price">Price (৳)</label>
+        <input id="price" type="number" formControlName="price" placeholder="Enter price">
+      </div>
+
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input id="stock" type="number" formControlName="stock" placeholder="Available stock">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" formControlName="category">
+        <option value="">-- Select Category --</option>
+        <option *ngFor="let c of categories" [ngValue]="c">{{ c.name }}</option>
+      </select>
+      <small *ngIf="f['category'].touched && f['category'].invalid" class="error">
+        Category is required
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Product Image</label>
+      <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="Enter image URL">
+      <div *ngIf="productForm.value.imageUrl" class="image-preview">
+        <img [src]="productForm.value.imageUrl" alt="preview">
+      </div>
+    </div>
+
+    <div class="form-group checkbox">
+      <label>
+        <input type="checkbox" formControlName="isActive"> Active
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid" class="btn-submit">
+      <i class="fa fa-plus"></i> Add Product
+    </button>
+  </form>
+</div>
+
+

@@ -1,0 +1,16 @@
+<div class="details-container" *ngIf="order">
+  <h2>Order Details ({{ order.orderNumber }})</h2>
+  <p><strong>User ID:</strong> {{ order.userId }}</p>
+  <p><strong>Total:</strong> {{ order.totalAmount | currency }}</p>
+  <p><strong>Status:</strong> {{ order.status }}</p>
+  <p><strong>Date:</strong> {{ order.orderDate | date:'short' }}</p>
+  <p><strong>Shipping:</strong> {{ order.shippingAddress }}</p>
+
+  <h3>Items</h3>
+  <ul>
+    <li *ngFor="let item of order.items">
+      Product: {{ item.productId }} | Qty: {{ item.quantity }}
+      <span *ngIf="item.price">| Price: {{ item.price | currency }}</span>
+    </li>
+  </ul>
+</div>

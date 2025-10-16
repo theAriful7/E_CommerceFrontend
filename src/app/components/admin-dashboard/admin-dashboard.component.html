@@ -1,0 +1,80 @@
+<div class="admin-dashboard">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">QuickCart</h2>
+    <nav>
+      <ul>
+        <li><a routerLink="/admin/dashboard" class="active">Dashboard</a></li>
+        <li><a routerLink="/admin/orders">Orders</a></li>
+        <li><a routerLink="/admin/users">Customers</a></li>
+        <li><a routerLink="/admin/vendors">Vendors</a></li>
+        <li><a routerLink="/admin/products">Products</a></li>
+        <li><a routerLink="/admin/reports">Reports</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <h1>Admin Dashboard</h1>
+      <div class="user-info">
+        <span>Welcome, Admin</span>
+      </div>
+    </header>
+
+    <section class="metrics">
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>{{ dashboardMetrics.totalOrders }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Customers</h3>
+        <p>{{ dashboardMetrics.totalCustomers }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Vendors</h3>
+        <p>{{ dashboardMetrics.totalVendors }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <p>${{ dashboardMetrics.totalRevenue }}</p>
+      </div>
+    </section>
+
+    <section class="recent-orders">
+      <h2>Recent Orders</h2>
+      <table class="orders-table">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Customer ID</th>
+      <th>Total Amount</th>
+      <th>Status</th>
+      <th>Order Date</th>
+      <th>Shipping Address</th>
+      <th>Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of recentOrders">
+      <td>{{ order.id }}</td>
+      <td>{{ order.userId }}</td>
+      <td>${{ order.totalAmount }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ order.orderDate | date:'short' }}</td>
+      <td>{{ order.shippingAddress }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let item of order.items">
+            {{ item.productName }} (x{{ item.quantity }}) - ${{ item.price }}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </section>
+  </main>
+</div>

@@ -1,0 +1,37 @@
+<div class="review-list-container">
+  <h2>Customer Reviews</h2>
+
+  <table class="review-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Product</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td>{{ review.id }}</td>
+        <td>{{ review.userName }}</td>
+        <td>{{ review.productName }}</td>
+        <td>
+          <span class="stars">{{ '★'.repeat(review.rating) }}</span>
+        </td>
+        <td>{{ review.comment }}</td>
+        <td>
+          <span [class.active]="review.isActive" [class.inactive]="!review.isActive">
+            {{ review.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        <td>
+          <button (click)="deleteReview(review.id)" class="btn-delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

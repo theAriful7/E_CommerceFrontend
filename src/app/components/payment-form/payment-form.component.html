@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h2>Add Payment</h2>
+  <form (ngSubmit)="savePayment()" #paymentForm="ngForm">
+    
+    <label>Order ID:</label>
+    <input type="number" name="orderId" [(ngModel)]="payment.orderId" required>
+
+    <label>Amount:</label>
+    <input type="number" name="amount" [(ngModel)]="payment.amount" required>
+
+    <label>Payment Method:</label>
+    <select name="paymentMethod" [(ngModel)]="payment.paymentMethod" required>
+      <option value="">Select Method</option>
+      <option value="Bkash">Bkash</option>
+      <option value="Nagad">Nagad</option>
+      <option value="Card">Card</option>
+      <option value="Cash">Cash</option>
+    </select>
+
+    <button type="submit" class="btn btn-success">Save Payment</button>
+  </form>
+</div>

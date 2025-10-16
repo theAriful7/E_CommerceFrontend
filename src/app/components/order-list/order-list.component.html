@@ -1,0 +1,33 @@
+<div class="order-container">
+  <h2>Order List</h2>
+  <button routerLink="/order/form" class="btn primary">➕ Add Order</button>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Order #</th>
+        <th>User ID</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Shipping</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of orders">
+        <td>{{ o.orderNumber }}</td>
+        <td>{{ o.userId }}</td>
+        <td>{{ o.totalAmount | currency }}</td>
+        <td>{{ o.status }}</td>
+        <td>{{ o.orderDate | date:'short' }}</td>
+        <td>{{ o.shippingAddress }}</td>
+        <td>
+          <button [routerLink]="['/order/details', o.id]" class="btn info">Details</button>
+          <button [routerLink]="['/order/form', o.id]" class="btn warn">Edit</button>
+          <button (click)="deleteOrder(o.id!)" class="btn danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

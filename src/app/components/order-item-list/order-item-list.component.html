@@ -1,0 +1,26 @@
+<div class="order-item-container">
+  <h2>Order Items</h2>
+
+  <table class="order-item-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orderItems">
+        <td>{{ item.id }}</td>
+        <td>{{ item.productId }}</td>
+        <td>{{ item.productName }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price | currency:'BDT ' }}</td>
+        <td>{{ item.subtotal | currency:'BDT ' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

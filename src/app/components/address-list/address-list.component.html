@@ -1,0 +1,33 @@
+<div class="address-list-container">
+  <h2>All Addresses</h2>
+
+  <table class="address-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Country</th>
+        <th>User ID</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let addr of addresses">
+        <td>{{ addr.id }}</td>
+        <td>{{ addr.street }}</td>
+        <td>{{ addr.city }}</td>
+        <td>{{ addr.state }}</td>
+        <td>{{ addr.postalCode }}</td>
+        <td>{{ addr.country }}</td>
+        <td>{{ addr.userId }}</td>
+        <td>
+          <button class="delete-btn" (click)="deleteAddress(addr.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

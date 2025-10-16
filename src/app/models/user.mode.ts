@@ -1,4 +1,4 @@
-import { AddressResponse } from "./address.model";
+import { Address } from "./address.model";
 
 export interface UserResponse {
   id: number;
@@ -7,7 +7,7 @@ export interface UserResponse {
   phone: string;
   role: Role;
   isActive: boolean;
-  addresses: AddressResponse[];
+  addresses: Address[];
 }
 
 export enum Role {

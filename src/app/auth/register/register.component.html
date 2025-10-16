@@ -1,0 +1,59 @@
+<div class="auth-container">
+  <h2>Register for QuickCart</h2>
+
+  <form (ngSubmit)="register()" #registerForm="ngForm" novalidate>
+    <div class="form-group">
+      <label>Full Name:</label>
+      <input
+        type="text"
+        [(ngModel)]="registerData.fullName"
+        name="fullName"
+        placeholder="Enter full name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input
+        type="email"
+        [(ngModel)]="registerData.email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Phone:</label>
+      <input
+        type="text"
+        [(ngModel)]="registerData.phone"
+        name="phone"
+        placeholder="Enter phone number"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Password:</label>
+      <input
+        type="password"
+        [(ngModel)]="registerData.password"
+        name="password"
+        placeholder="Enter password"
+        required
+      />
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid" class="btn primary-btn">
+      Register
+    </button>
+  </form>
+
+  <button class="btn secondary-btn" (click)="navigateToLogin()">
+    Already have an account? Login
+  </button>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+</div>

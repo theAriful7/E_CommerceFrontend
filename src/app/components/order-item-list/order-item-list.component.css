@@ -1,0 +1,39 @@
+.order-item-container {
+  width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.order-item-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.order-item-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-item-table th, .order-item-table td {
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.order-item-table th {
+  background-color: #3498db;
+  color: white;
+}
+
+.order-item-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.order-item-table tr:hover {
+  background-color: #eaf2f8;
+  transition: 0.3s;
+}

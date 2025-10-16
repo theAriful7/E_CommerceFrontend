@@ -22,7 +22,7 @@ export class UserListComponent implements OnInit {
 
   fetchUser() {
     this.loading = true;
-    this.userService.getAll().subscribe({
+    this.userService.getAllUsers().subscribe({
       next: (data) => { this.users = data; this.loading = false },
       error: (err) => { this.error = 'User fetch Failed'; this.loading = false },
     });
@@ -38,7 +38,7 @@ export class UserListComponent implements OnInit {
 
     deleteUser(id: number) {
     if (!confirm('Are you sure to delete this user?')) return;
-    this.userService.delete(id).subscribe({
+    this.userService.deleteUser(id).subscribe({
       next: () => { this.users = this.users.filter(u => u.id !== id); },
       error: (err) => { alert('Delete failed'); console.error(err); }
     });

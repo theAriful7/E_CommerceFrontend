@@ -1,0 +1,9 @@
+<div class="details-container" *ngIf="product">
+  <img [src]="product.imageUrl" alt="{{ product.name }}">
+  <h2>{{ product.name }}</h2>
+  <p><strong>Description:</strong> {{ product.description }}</p>
+  <p><strong>Price:</strong> {{ product.price | currency:'BDT' }}</p>
+  <p><strong>Stock:</strong> {{ product.stock }}</p>
+  <p><strong>Category:</strong> {{ product.category.name }}</p>
+  <p><strong>Status:</strong> {{ product.isActive ? 'Active' : 'Inactive' }}</p>
+</div>

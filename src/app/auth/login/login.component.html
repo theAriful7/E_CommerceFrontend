@@ -1,0 +1,43 @@
+<div class="auth-container">
+  <h2>Login to QuickCart</h2>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+    <div class="form-group">
+      <label>Email:</label>
+      <input
+        type="email"
+        [(ngModel)]="loginData.email"
+        name="email"
+        required
+        placeholder="Enter your email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Password:</label>
+      <input
+        type="password"
+        [(ngModel)]="loginData.password"
+        name="password"
+        required
+        placeholder="Enter your password"
+      />
+    </div>
+
+    <button (click)="login()" type="submit" [disabled]="loginForm.invalid" class="btn primary-btn">
+      Login
+    </button>
+  </form>
+
+  <button class="btn secondary-btn" (click)="navigateToRegister()">
+    Register
+  </button>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+
+  <div class="user-details" *ngIf="user">
+    <h3>User Details:</h3>
+    <p><b>Name:</b> {{ user.fullName }}</p>
+    <p><b>Role:</b> {{ user.role }}</p>
+  </div>
+</div>

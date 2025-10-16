@@ -1,4 +1,5 @@
-import { AddressResponse } from "./address.model";
+
+import { Address } from "./address.model";
 import { Role } from "./user.mode";
 
 export interface UserRequest {
@@ -7,5 +8,5 @@ export interface UserRequest {
   phone: string;
   password?: string; // create may need password; edit optional
   role: Role;
-  addresses: AddressResponse[]; // backend expects AddressRequestDTO shape similar
+  addresses: Address[]; // backend expects AddressRequestDTO shape similar
 }

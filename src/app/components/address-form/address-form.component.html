@@ -1,0 +1,25 @@
+<div class="address-form-container">
+  <h2>Add New Address</h2>
+
+  <form (ngSubmit)="saveAddress()">
+    <label>Street:</label>
+    <input type="text" [(ngModel)]="address.street" name="street" required />
+
+    <label>City:</label>
+    <input type="text" [(ngModel)]="address.city" name="city" required />
+
+    <label>State:</label>
+    <input type="text" [(ngModel)]="address.state" name="state" required />
+
+    <label>Postal Code:</label>
+    <input type="text" [(ngModel)]="address.postalCode" name="postalCode" required />
+
+    <label>Country:</label>
+    <input type="text" [(ngModel)]="address.country" name="country" required />
+
+    <label>User ID:</label>
+    <input type="number" [(ngModel)]="address.userId" name="userId" />
+
+    <button type="submit">Save Address</button>
+  </form>
+</div>

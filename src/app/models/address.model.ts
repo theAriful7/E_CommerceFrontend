@@ -1,8 +1,9 @@
-export interface AddressResponse {
+export interface Address {
   id?: number;
   street?: string;
   city?: string;
   state?: string;
-  country?: string;
   postalCode?: string;
+  country?: string;
+  userId? : number;
 }

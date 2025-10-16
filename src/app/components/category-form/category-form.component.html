@@ -1,0 +1,14 @@
+<div class="form-container">
+  <h2>{{ isEdit ? 'Edit Category' : 'Add Category' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="category.name" name="name" required />
+
+    <label>Description:</label>
+    <textarea [(ngModel)]="category.description" name="description" required></textarea>
+
+    <button type="submit" class="btn primary">{{ isEdit ? 'Update' : 'Save' }}</button>
+    <button type="button" routerLink="/categories" class="btn danger">Cancel</button>
+  </form>
+</div>

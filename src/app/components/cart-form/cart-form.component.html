@@ -1,0 +1,21 @@
+<div class="cart-form-container">
+  <h2>Create Cart</h2>
+  <label>User ID:</label>
+  <input type="number" [(ngModel)]="userId" placeholder="Enter User ID" />
+
+  <div class="item-section">
+    <h3>Add Cart Items</h3>
+    <input type="number" [(ngModel)]="productId" placeholder="Product ID" />
+    <input type="number" [(ngModel)]="quantity" placeholder="Quantity" />
+    <input type="number" [(ngModel)]="pricePerItem" placeholder="Price per item" />
+    <button (click)="addItem()">Add Item</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let item of cartItems">
+      Product: {{ item.productId }} | Qty: {{ item.quantity }} | Price: {{ item.totalPrice }}
+    </li>
+  </ul>
+
+  <button class="save-btn" (click)="saveCart()">Save Cart</button>
+</div>

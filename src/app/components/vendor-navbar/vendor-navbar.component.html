@@ -1,0 +1,60 @@
+<div class="vendor-container">
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.collapsed]="isCollapsed">
+    <div class="logo">
+      <h2 *ngIf="!isCollapsed">Vendor Panel</h2>
+      <button class="toggle-btn" (click)="toggleSidebar()">
+        <i class="fa" [ngClass]="isCollapsed ? 'fa-bars' : 'fa-times'"></i>
+      </button>
+    </div>
+    <ul class="menu">
+      <li routerLink="/vendor/dashboard" routerLinkActive="active">
+        <i class="fa fa-home"></i> <span *ngIf="!isCollapsed">Dashboard</span>
+      </li>
+      <li routerLink="/vendor/products" routerLinkActive="active">
+        <i class="fa fa-box"></i> <span *ngIf="!isCollapsed">My Products</span>
+      </li>
+      <li routerLink="/vendor/add-product" routerLinkActive="active">
+        <i class="fa fa-plus-circle"></i> <span *ngIf="!isCollapsed">Add Product</span>
+      </li>
+      <li routerLink="/vendor/orders" routerLinkActive="active">
+        <i class="fa fa-shopping-cart"></i> <span *ngIf="!isCollapsed">Orders</span>
+      </li>
+      <li routerLink="/vendor/earnings" routerLinkActive="active">
+        <i class="fa fa-wallet"></i> <span *ngIf="!isCollapsed">Earnings</span>
+      </li>
+      <li routerLink="/vendor/profile" routerLinkActive="active">
+        <i class="fa fa-user"></i> <span *ngIf="!isCollapsed">Profile</span>
+      </li>
+      <li routerLink="/vendor/support" routerLinkActive="active">
+        <i class="fa fa-headset"></i> <span *ngIf="!isCollapsed">Support</span>
+      </li>
+      <li (click)="logout()">
+        <i class="fa fa-sign-out-alt"></i> <span *ngIf="!isCollapsed">Logout</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <header class="navbar">
+      <input type="text" placeholder="Search..." class="search-bar" />
+      <div class="nav-right">
+        <i class="fa fa-bell"></i>
+        <div class="profile" (click)="toggleProfileMenu()">
+          <img src="assets/vendor-avatar.png" alt="profile" />
+          <span>Ariful</span>
+        </div>
+        <ul class="profile-menu" *ngIf="showProfileMenu">
+          <li routerLink="/vendor/profile">View Profile</li>
+          <li routerLink="/vendor/settings">Settings</li>
+          <li (click)="logout()">Logout</li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
